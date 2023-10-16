@@ -2,7 +2,7 @@
 - Requires admin access and a connection to the internet
 - You may get a false positive from your AV, this is because this program makes system changes that Windows does not like
 - This is the same as my other [Windows Performance Application](https://github.com/Mr123keelos/WindowsPerformanceApplication), except this version (Python) includes tweaks that are safe on my PC and the ones I apply on my PC.
-- If you want a UI and more tweaks, use the non-Python version
+- If you want a UI and more tweaks, use the non-Python version, but keep in mind I will be updating this version
   
 # Features
 - Automatic file cleaner
