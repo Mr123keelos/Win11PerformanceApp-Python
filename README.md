@@ -23,7 +23,7 @@
 - [PREVIEW (YouTube)](https://www.youtube.com/watch?v=l_ALaS2PTI4)
 
 # Download
-- xxTESTxx
+- [Check the Releases tab](https://github.com/Mr123keelos/Win11PerformanceApp-Python/releases)
 - Includes Python Code
 
 ~123keelos
