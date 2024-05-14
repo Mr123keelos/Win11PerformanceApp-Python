@@ -3,6 +3,10 @@
 - You may get a false positive from your AV, this is because this program makes system changes that Windows does not like
 - This is the same as my other [Windows Performance Application](https://github.com/Mr123keelos/WindowsPerformanceApplication), except this version (Python) includes only tweaks that I applied on my own PC.
 - If you want a UI and more tweaks, use the non-Python version, but keep in mind I will be updating this version
+
+# Requirements
+- Windows with admin privileges (to allow the program to make system changes)
+- Working internet connection (this program downloads my .reg and .bat files from Mediafire)
   
 # Features
 - Automatic file cleaner
@@ -13,7 +17,6 @@
 
 # WARNING
 - Changing the Windows system is not 100% safe. PLEASE MAKE A RESTORE POINT BEFORE USING THIS PROGRAM!
-- This program can cause instability in your Windows system. Please read everything!
 
 # How to use
 - Download and run the .exe as an administrator
