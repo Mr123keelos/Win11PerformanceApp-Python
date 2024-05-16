@@ -15,7 +15,7 @@
 - Disable power saving
 - Lightweight, use then remove
 
-# WARNING
+# Disclaimer
 - Changing the Windows system is not 100% safe. PLEASE MAKE A RESTORE POINT BEFORE USING THIS PROGRAM!
 
 # How to use
