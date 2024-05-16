@@ -13,6 +13,8 @@
 - Enable high-performance tweaks
 - Disable unwanted services that can cause slow-down
 - Disable power saving
+- Enhanced system performance
+- Disable telemtry
 - Lightweight, use then remove
 
 # Disclaimer
