@@ -23,6 +23,7 @@
 # How to use
 - Download and run the .exe as an administrator
 - Make sure to read all the help texts inside the application
+- You can change settings of the program in settings.ini, created when you open the program
 
 # Application Preview
 - [PREVIEW (YouTube)](https://www.youtube.com/watch?v=l_ALaS2PTI4)
