@@ -6,7 +6,7 @@
 
 # Requirements
 - Windows with admin privileges (to allow the program to make system changes)
-- Working internet connection (this program downloads my .reg and .bat files from Mediafire)
+- Windows 11 with the latest updates
   
 # Features
 - Automatic file cleaner
