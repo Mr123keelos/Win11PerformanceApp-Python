@@ -14,22 +14,33 @@
 - Disable unwanted services that can cause slow-down
 - Disable power saving
 - Enhanced system performance
-- Disable telemtry
+- Disable telemetry
 - Lightweight, use then remove
 
 # Disclaimer
 - Changing the Windows system is not 100% safe. PLEASE MAKE A RESTORE POINT BEFORE USING THIS PROGRAM!
 
-# How to use
+# How to Use
 - Download and run the .exe as an administrator
 - Make sure to read all the help texts inside the application
 - You can change settings of the program in settings.ini, created when you open the program
+
+# How to Update
+- The program comes with an update checker that will notify you if there is a new update available (can be disabled)
+- Make sure you exited the program using the 'Exit + Cleanup' option inside the application
+- Delete all the .exe and the settings.ini file
+- Download new update from 'Releases' tab in Github
+- Run the new application
 
 # Application Preview
 - [PREVIEW (YouTube)](https://www.youtube.com/watch?v=l_ALaS2PTI4)
 
 # Download
 - [Check the Releases tab](https://github.com/Mr123keelos/Win11PerformanceApp-Python/releases)
-- Includes Python Code
+
+# Code
+- The download includes the code
+- The app was made using Python 3
+- EXE was made using PyInstaller (pyinstaller --onefile init.py)
 
 ~123keelos
