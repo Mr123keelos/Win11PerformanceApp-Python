@@ -1,7 +1,7 @@
 # Windows Performance Application - Python Edition
-- Requires admin access and a connection to the internet
-- You may get a false positive from your AV, this is because this program makes system changes that Windows does not like
-- This is the same as my other [Windows Performance Application (Outdated)](https://github.com/Mr123keelos/WindowsPerformanceApplication), except this version (Python) includes only tweaks that I applied on my own PC.
+- Windows Performance Application recoded in Python with only the necessary tweaks plus many other changes
+- You may get a false positive from your AV, this is because this program makes system changes
+- This is the same as my other [Windows Performance Application (Outdated)](https://github.com/Mr123keelos/WindowsPerformanceApplication), except this version (Python) includes only tweaks that I applied on my PC.
 - If you want a UI and more tweaks, use the non-Python version, but keep in mind I will be updating this version
 
 # Requirements
@@ -23,7 +23,7 @@
 # How to Use
 - Download and run the .exe as an administrator
 - Make sure to read all the help texts inside the application
-- You can change settings of the program in settings.ini, created when you open the program
+- You can change the settings of the program in settings.ini file, created when you open the program
 
 # How to Update
 - The program comes with an update checker that will notify you if there is a new update available (can be disabled)
