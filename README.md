@@ -1,9 +1,5 @@
 # Windows 11 Performance Application - Python Edition
-- Windows Performance Application recoded in Python with only the necessary tweaks plus many other changes
-
-- You may get a false positive from your AV, this is because this program makes system changes
-- This is the same as my other [Windows Performance Application (Outdated)](https://github.com/Mr123keelos/WindowsPerformanceApplication), except this version (Python) includes only tweaks that I applied on my PC.
-- If you want a UI and more tweaks, use the non-Python version, but keep in mind I will be updating this version
+- Windows Performance Application recoded in Python with only the necessary tweaks (as in the ones I have applied on my PC) plus many other changes and additions
 
 # Requirements
 - Windows with admin privileges (to allow the program to make system changes)
@@ -15,15 +11,18 @@
 - Disable unwanted services that can cause slow-down
 - Disable power saving
 - Enhanced system performance
+- Lower system latency
 - Disable telemetry
 - Lightweight, use then remove
 
 # Disclaimer
 - Changing the Windows system is not 100% safe. PLEASE MAKE A RESTORE POINT BEFORE USING THIS PROGRAM!
+- You may get a false positive from your AV, this is because this program makes system changes
+- This program creates a folder that stores all the temporary files. The folder location can be changed in settings.ini
 
 # How to Use
 - Download and run the .exe as an administrator
-- Make sure to read all the help texts inside the application
+- Make sure to read all the instructions inside the application
 - You can change the settings of the program in settings.ini file, created when you open the program
 
 # How to Update
