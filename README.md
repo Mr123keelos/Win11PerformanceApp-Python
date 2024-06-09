@@ -1,5 +1,5 @@
 # Windows 11 Performance Application - Python Edition
-- Windows Performance Application recoded in Python
+- Windows Performance Application recoded in Python with only the tweaks applied on my PC plus many more!
 
 # Requirements
 - Windows with admin privileges (to allow the program to make system changes)
