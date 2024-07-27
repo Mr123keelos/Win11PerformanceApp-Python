@@ -29,7 +29,7 @@
 - The program comes with an update checker that will notify you if there is a new update available (can be disabled)
 - Make sure you exited the program using the 'Exit + Cleanup' option inside the application
 - Delete all the .exe and the settings.ini file
-- Download new update from 'Releases' tab in Github
+- Download the new update from the 'Releases' tab
 - Run the new application
 
 # Application Preview
