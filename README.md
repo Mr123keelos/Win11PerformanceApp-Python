@@ -33,7 +33,7 @@
 - Run the new application
 
 # Application Preview
-- [PREVIEW (YouTube)](https://www.youtube.com/watch?v=l_ALaS2PTI4)
+- (https://img.youtube.com/vi/l_ALaS2PTI4/0.jpg)](https://www.youtube.com/watch?v=l_ALaS2PTI4)
 
 # Download
 - [Check the Releases tab](https://github.com/Mr123keelos/Win11PerformanceApp-Python/releases)
