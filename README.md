@@ -35,6 +35,12 @@
 # Application Preview
 - [PREVIEW (YouTube)](https://www.youtube.com/watch?v=l_ALaS2PTI4)
 
+# Changelog
+- _See Release tab_
+
+# Issues and Bugs
+- Please report any issues and bugs you come across
+
 # Download
 - [Check the Releases tab](https://github.com/Mr123keelos/Win11PerformanceApp-Python/releases)
 
