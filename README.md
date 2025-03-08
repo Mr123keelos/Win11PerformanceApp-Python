@@ -17,7 +17,7 @@
 
 # Disclaimer
 - Changing the Windows system is not 100% safe. PLEASE MAKE A RESTORE POINT BEFORE USING THIS PROGRAM!
-- You may get a false positive from your AV, this is because this program makes system changes
+- You may get a false positive from your AV, this is because this program makes system changes. The source code is included so you know what the application does
 - This program creates a folder that stores all the temporary files. The folder location can be changed in settings.ini
 
 # How to Use
