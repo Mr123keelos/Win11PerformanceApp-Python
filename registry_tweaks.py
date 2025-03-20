@@ -23,7 +23,7 @@ def reg_tweaks():
             print("SUCCESS! GameDVR and XBOX Services have been DISABLED. Please select 'YES' when you get a registry prompt\n")
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
 
             script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', '1_XBOX-Services.reg')
@@ -63,7 +63,7 @@ def reg_tweaks():
                 file.write(script_content)
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             program_delay = config.getfloat('Initial', 'program_delay')
             time.sleep(program_delay)
 
@@ -75,7 +75,7 @@ def reg_tweaks():
             print("SUCCESS! Useless Windows services and settings have been DISABLED. Please select 'YES' when you get a registry prompt\n")
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
 
             script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', '2_Windows-Services.reg')
@@ -145,7 +145,7 @@ HiberBootEnabled"=dword:00000000
                 file.write(script_content)
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             program_delay = config.getfloat('Initial', 'program_delay')
             time.sleep(program_delay)
 
@@ -157,7 +157,7 @@ HiberBootEnabled"=dword:00000000
             print("SUCCESS! Windows Defender and protection settings have been DISABLED. Please select 'YES' when you get a registry prompt\n")
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
 
             script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', '3_Windows-Defender.reg')
@@ -230,7 +230,7 @@ HiberBootEnabled"=dword:00000000
                 file.write(script_content)
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             program_delay = config.getfloat('Initial', 'program_delay')
             time.sleep(program_delay)
 
@@ -242,7 +242,7 @@ HiberBootEnabled"=dword:00000000
             print("SUCCESS! Windows telemetry and data collection have been DISABLED. Please select 'YES' when you get a registry prompt\n")
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
 
             script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', '4_Windows-Data-Collection.reg')
@@ -374,7 +374,7 @@ HiberBootEnabled"=dword:00000000
                 file.write(script_content)
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             program_delay = config.getfloat('Initial', 'program_delay')
             time.sleep(program_delay)
 
@@ -386,7 +386,7 @@ HiberBootEnabled"=dword:00000000
             print("SUCCESS! Microsoft Copilot has been DISABLED. Please select 'YES' when you get a registry prompt\n")
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
 
             script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', '5_Microsoft-Copilot.reg')
@@ -407,7 +407,7 @@ HiberBootEnabled"=dword:00000000
                 file.write(script_content)
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             program_delay = config.getfloat('Initial', 'program_delay')
             time.sleep(program_delay)
 

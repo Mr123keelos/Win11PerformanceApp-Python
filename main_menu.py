@@ -45,7 +45,7 @@ def menu():
 
         elif choice == '6':
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
 
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
 

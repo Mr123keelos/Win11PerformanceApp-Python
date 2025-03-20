@@ -19,7 +19,7 @@ def usefulsoftware():
         if usefulsoftware_choice == '1':
             os.system('cls')
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             browser_open = config.getboolean('Useful Software', 'browser_open')
             if browser_open:
                 webbrowser.open("https://www.techpowerup.com/download/techpowerup-nvcleanstall/", new=2)
@@ -59,7 +59,7 @@ def usefulsoftware():
         elif usefulsoftware_choice == '2':
             os.system('cls')
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             browser_open = config.getboolean('Useful Software', 'browser_open')
             if browser_open:
                 webbrowser.open("https://github.com/Sycnex/Windows10Debloater", new=2)
@@ -74,7 +74,7 @@ def usefulsoftware():
         elif usefulsoftware_choice == '3':
             os.system('cls')
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             browser_open = config.getboolean('Useful Software', 'browser_open')
             if browser_open:
                 webbrowser.open("https://www.grc.com/inspectre.htm", new=2)
@@ -91,7 +91,7 @@ def usefulsoftware():
         elif usefulsoftware_choice == '4':
             os.system('cls')
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             browser_open = config.getboolean('Useful Software', 'browser_open')
             if browser_open:
                 webbrowser.open("https://rufus.ie/en/", new=2)

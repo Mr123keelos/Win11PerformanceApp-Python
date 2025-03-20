@@ -29,7 +29,7 @@ PRIORITY_MAP = {
 
 def settings_ini():
     try:
-        if not os.path.exists('settings.ini'):
+        if not os.path.exists('Win11PerformanceApp_settings.ini'):
             config = configparser.ConfigParser()
             config['Initial'] = {
                 ';Allows the program to check for admin rights. NOTE: You still need admin rights to make system changes, this only disables the initial check': '',
@@ -60,17 +60,17 @@ def settings_ini():
                 'config_version': version,
             }
 
-            with open('settings.ini', 'w') as configfile:
+            with open('Win11PerformanceApp_settings.ini', 'w') as configfile:
                 config.write(configfile)
 
             print("Welcome to Windows 11 Performance Application - Python Edition by 123keelos")
             print("https://github.com/Mr123keelos/Win11PerformanceApp-Python\n")
-            print("ERROR! settings.ini does not exist and this program created one in the same path as where this .exe is located. Edit the settings.ini file to your liking and reopen the program.\n")
+            print("ERROR! Win11PerformanceApp_settings.ini does not exist and this program created one in the same path as where this .exe is located. Edit the Win11PerformanceApp_settings.ini file to your liking and reopen the program.\n")
             input("Press ENTER to exit...")
             sys.exit()
         else:
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
 
             admin_check = config.get('Initial', 'admin_check', fallback=None)
             if admin_check not in ['true', 'false']:
@@ -113,20 +113,20 @@ def settings_ini():
 
 def check_version():
     config = configparser.ConfigParser()
-    config.read('settings.ini')
+    config.read('Win11PerformanceApp_settings.ini')
     ini_version = config.get('Version', 'config_version', fallback=None)
 
     if ini_version is None or ini_version != str(version):
         print("Welcome to Windows 11 Performance Application - Python Edition by 123keelos")
         print("https://github.com/Mr123keelos/Win11PerformanceApp-Python\n")
-        print("ERROR! settings.ini has a version mismatch. Delete settings.ini and reopen the program.\n")
+        print("ERROR! Version mismatch. Delete Win11PerformanceApp_settings.ini and reopen the program.\n")
         input("Press ENTER to exit...")
         sys.exit()
 
 
 def set_priority():
     config = configparser.ConfigParser()
-    config.read('settings.ini')
+    config.read('Win11PerformanceApp_settings.ini')
     app_priority = config.get('Initial', 'app_priority', fallback='2')
     try:
         priority_class = PRIORITY_MAP.get(app_priority, psutil.NORMAL_PRIORITY_CLASS)
@@ -143,7 +143,7 @@ set_priority()
 def is_admin():
     try:
         config = configparser.ConfigParser()
-        config.read('settings.ini')
+        config.read('Win11PerformanceApp_settings.ini')
         if config.getboolean('Initial', 'admin_check'):
             return ctypes.windll.shell32.IsUserAnAdmin()
         else:
@@ -177,14 +177,14 @@ if is_admin():
 
         print("Instead of exiting the window, select 'Exit + Clean up' in main menu to clean up all the temporary files made by the program, otherwise those temporary files won't be deleted.\n")
 
-        print("Open the settings.ini file to change any settings.\n")
+        print("Open the Win11PerformanceApp_settings.ini file to change any settings.\n")
 
         print("==TEMP FILES==")
-        print("This program will save temporary files to the folder specified in the settings.ini file. DO NOT touch them while the program is running. They are safe to delete once you have exited the program. You can also select the 'Exit + Clean up' option to delete them for you.\n")
+        print("This program will save temporary files to the folder specified in the Win11PerformanceApp_settings.ini file. DO NOT touch them while the program is running. They are safe to delete once you have exited the program. You can also select the 'Exit + Clean up' option to delete them for you.\n")
 
         print("==CHECK FOR UPDATES==")
         config = configparser.ConfigParser()
-        config.read('settings.ini')
+        config.read('Win11PerformanceApp_settings.ini')
         if config.getboolean('Initial', 'update_check'):
             try:
                 response = requests.get(API_URL)
@@ -207,7 +207,7 @@ if is_admin():
             except requests.exceptions.RequestException as e:
                 print(f'ERROR! Failed to check for update.')
         else:
-            print("!! UPDATE CHECK IS DISABLED IN SETTINGS.INI !!\n")
+            print("!! UPDATE CHECK IS DISABLED IN Win11PerformanceApp_settings.ini !!\n")
             print("You are running version : v" + str(version) + "\n")
 
         print("==AGREEMENT==")

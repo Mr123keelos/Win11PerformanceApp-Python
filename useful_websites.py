@@ -16,7 +16,7 @@ def usefulwebsite():
         if usefulwebsite_choice == '1':
             os.system('cls')
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             browser_open = config.getboolean('Useful Software', 'browser_open')
             if browser_open:
                 webbrowser.open("https://www.reddit.com/r/OptimizedGaming/", new=2)
@@ -26,7 +26,7 @@ def usefulwebsite():
         elif usefulwebsite_choice == '2':
             os.system('cls')
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             browser_open = config.getboolean('Useful Software', 'browser_open')
             if browser_open:
                 webbrowser.open("https://www.nexusmods.com/", new=2)
@@ -36,7 +36,7 @@ def usefulwebsite():
         elif usefulwebsite_choice == '3':
             os.system('cls')
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             browser_open = config.getboolean('Useful Software', 'browser_open')
             if browser_open:
                 webbrowser.open("https://www.pcgamingwiki.com/wiki/Home", new=2)

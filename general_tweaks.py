@@ -53,7 +53,7 @@ del /s /q /f %Windir%\\SoftwareDistribution\\Download\\*.*
             os.system('cls')
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
 
             script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos','task-scheduler-tweaks.bat')
@@ -84,7 +84,7 @@ schtasks /Change /TN "\Microsoft\Windows\Maps\MapsToastTask" /DISABLE
                 file.write(script_content)
 
             config = configparser.ConfigParser()
-            config.read('settings.ini')
+            config.read('Win11PerformanceApp_settings.ini')
             program_delay = config.getfloat('Initial', 'program_delay')
             time.sleep(program_delay)
 
