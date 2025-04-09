@@ -4,6 +4,7 @@ import general_tweaks
 import registry_tweaks
 import useful_software
 import useful_websites
+import experimental_tweaks
 import sys
 import shutil
 import configparser
@@ -19,7 +20,8 @@ def menu():
         print("[3] Registry Tweaks")
         print("[4] Useful Software")
         print("[5] Useful Websites")
-        print("[6] Exit + Clean up")
+        print("[6] Experimental Tweaks (!)")
+        print("[7] Exit + Clean up")
 
         choice = input("\nEnter a number : ")
 
@@ -44,6 +46,16 @@ def menu():
             useful_websites.usefulwebsite()
 
         elif choice == '6':
+            os.system('cls')
+            config = configparser.ConfigParser()
+            config.read('Win11PerformanceApp_settings.ini')
+            enable_experimental_tweaks = config.getboolean('Experimental Tweaks', 'enable_experimental_tweaks')
+            if enable_experimental_tweaks:
+                experimental_tweaks.experimentaltweaks()
+            else:
+                print("ERROR! Experimental Tweaks is DISABLED in the config")
+
+        elif choice == '7':
             config = configparser.ConfigParser()
             config.read('Win11PerformanceApp_settings.ini')
 

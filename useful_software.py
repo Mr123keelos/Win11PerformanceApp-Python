@@ -12,7 +12,8 @@ def usefulsoftware():
               "[3] InSpectre\n"
               "[4] Rufus\n"
               "[5] Nvidia App/Control Panel Settings\n"
-              "[6] ...back to Main Menu\n")
+              "[6] Nvidia Profile Inspector\n"
+              "[7] ...back to Main Menu\n")
 
         usefulsoftware_choice = input("\nEnter a number : ")
 
@@ -135,6 +136,26 @@ def usefulsoftware():
             print("-----------------\n")
 
         elif usefulsoftware_choice == '6':
+            os.system('cls')
+            config = configparser.ConfigParser()
+            config.read('Win11PerformanceApp_settings.ini')
+            browser_open = config.getboolean('Useful Software', 'browser_open')
+            if browser_open:
+                webbrowser.open("https://github.com/Orbmu2k/nvidiaProfileInspector", new=2)
+            else:
+                print("")
+            print("-----------------\n")
+            print("LINK - https://github.com/Orbmu2k/nvidiaProfileInspector\n")
+            print("NVIDIA Profile Inspector is a tool that allows you to change more settings than the NVCP allows. Though it has a lot more options, we are only focused on forcing DLSS Preset K in all the DLSS games we have. This preset is the highest quality as of now. It allows me to use DLSS Balanced with the image quality of near native resolution.\n\n"
+                  "1] Run the program\n"
+                  "2] Near the top-left corner, find 'Profiles:' and set its value to '_GLOBAL_DRIVER_PROFILE (Base Profile)'\n"
+                  "3] Scroll down until you find '5 - Common' category\n"
+                  "4] Under the category mentioned above, find 'DLSS 3.1.11+ - Forced DLSS3.1 preset letter (base profile only)' and set its value to 'Preset K'\n"
+                  "5] Near the top-right corner, select 'Apply Changes' and exit the program\n"
+                  "6] Done! Make sure to update the DLSS DLLs in all of your games. This can be done manually or using a program like DLSS-Swapper\n")
+            print("-----------------\n")
+
+        elif usefulsoftware_choice == '7':
             os.system('cls')
             main_menu.menu()
 

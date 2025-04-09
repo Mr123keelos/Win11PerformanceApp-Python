@@ -1,8 +1,3 @@
- #1.5
-
-#- Removed MSI Afterburner in favor of Nvidia app
-#- Removed NvTrueHDR in favor of Nvidia app
-
 import ctypes
 import configparser
 import os
@@ -50,6 +45,11 @@ def settings_ini():
                 'browser_open': 'true',
             }
 
+            config['Experimental Tweaks'] = {
+                ';Enable the USEFUL SOFTWARE section. This section contains tweaks that could have some unwanted side effects and should only be used if you know what you are doing': '',
+                'enable_experimental_tweaks': 'true',
+            }
+
             config['Temporary Files'] = {
                 ';Change the path of where this program will save temporary files': '',
                 'temp_file_folder': 'C:\Windows\Prefetch',
@@ -74,34 +74,38 @@ def settings_ini():
 
             admin_check = config.get('Initial', 'admin_check', fallback=None)
             if admin_check not in ['true', 'false']:
-                raise ValueError("ERROR! Invalid value for 'admin_check' (true/false)")
+                raise ValueError(f"Invalid value for 'admin_check' (true/false)")
 
             update_check = config.get('Initial', 'update_check', fallback=None)
             if update_check not in ['true', 'false']:
-                raise ValueError("ERROR! Invalid value for 'update_check' (true/false)")
+                raise ValueError(f"Invalid value for 'update_check' (true/false)")
 
             try:
                 program_delay = float(config.get('Initial', 'program_delay', fallback='0.5'))
                 if program_delay < 0:
-                    raise ValueError("ERROR! Invalid value for 'program_delay' (> 0.0)")
+                    raise ValueError(f"Invalid value for 'program_delay' (> 0.0)")
             except ValueError:
-                raise ValueError("ERROR! Invalid value for 'program_delay' (> 0.0)")
+                raise ValueError(f"Invalid value for 'program_delay' (> 0.0)")
 
             app_priority = config.get('Initial', 'app_priority', fallback='2')
             if app_priority not in ['0', '1', '2', '3', '4', '5']:
-                raise ValueError("ERROR! Invalid value for 'app_priority' (0,1,2,3,4,5)")
+                raise ValueError(f"Invalid value for 'app_priority' (0,1,2,3,4,5)")
 
             browser_open = config.get('Useful Software', 'browser_open', fallback=None)
             if browser_open not in ['true', 'false']:
-                raise ValueError("ERROR! Invalid value for 'browser_open' (true/false)")
+                raise ValueError(f"Invalid value for 'browser_open' (true/false)")
+
+            enable_experimental_tweaks = config.get('Experimental Tweaks', 'enable_experimental_tweaks', fallback=None)
+            if enable_experimental_tweaks not in ['true', 'false']:
+                raise ValueError(f"Invalid value for 'enable_experimental_tweaks' (true/false)")
 
             temp_file_folder = config.get('Temporary Files', 'temp_file_folder', fallback=None)
 
             if temp_file_folder:
                 if not os.path.isdir(temp_file_folder):
-                    raise ValueError(f"ERROR! Invalid path for 'temp_file_folder'. The directory does not exist or is inaccessible.")
+                    raise ValueError(f"Invalid path for 'temp_file_folder'. The directory does not exist or is inaccessible.")
             else:
-                raise ValueError("ERROR! Invalid value for 'temp_file_folder'. Please specify a valid directory path.")
+                raise ValueError("Invalid value for 'temp_file_folder'. Please specify a valid directory path.")
 
     except (ValueError, Exception) as e:
         print("Welcome to Windows 11 Performance Application - Python Edition by 123keelos")
