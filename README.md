@@ -18,12 +18,12 @@
 # Disclaimer
 - Changing the Windows system is not 100% safe. PLEASE MAKE A RESTORE POINT BEFORE USING THIS PROGRAM!
 - You may get a false positive from your AV, this is because this program makes system changes. The source code is included so you know what the application does
-- This program creates a folder that stores all the temporary files. The folder location can be changed in settings.ini
+- This program creates a folder that stores all the temporary files. The folder location can be changed in the INI file
 
 # How to Use
 - Download and run the .exe as an administrator
 - Make sure to read all the instructions inside the application
-- You can change the settings of the program in settings.ini file, created when you open the program
+- You can change the settings of the program in the INI file, created when you first open the program
 
 # How to Update
 - The program comes with an update checker that will notify you if there is a new update available (can be disabled)
