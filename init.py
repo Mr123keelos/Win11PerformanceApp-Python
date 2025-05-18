@@ -46,8 +46,8 @@ def settings_ini():
             }
 
             config['Experimental Tweaks'] = {
-                ';Enable the USEFUL SOFTWARE section. This section contains tweaks that could have some unwanted side effects and should only be used if you know what you are doing': '',
-                'enable_experimental_tweaks': 'true',
+                ';Enable the EXPERIMENTAL TWEAKS section. This section contains tweaks that could have some unwanted side effects and should only be used if you know what you are doing': '',
+                'enable_experimental_tweaks': 'false',
             }
 
             config['Temporary Files'] = {
