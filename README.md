@@ -3,16 +3,14 @@
 
 # Requirements
 - Windows with admin privileges (to allow the program to make system changes)
-- Windows 11 with the latest updates (tested on version 24H2)
+- Windows 11 with the latest updates (can work on older versions but this program was tested on version 24H2)
   
 # Features
 - Automatic file cleaner
 - Enable high-performance tweaks
 - Disable unwanted services that can cause slow-down
-- Disable power saving
-- Enhanced system performance
-- Lower system latency
-- Disable telemetry
+- Lower overall system latency
+- Disable data collection and telemetry
 - Lightweight, use then remove
 
 # Disclaimer
@@ -22,7 +20,7 @@
 
 # How to Use
 - Download and run the .exe as an administrator
-- Make sure to read all the instructions inside the application
+- Make sure to read all of the instructions inside the application
 - You can change the settings of the program in the INI file, created when you first open the program
 
 # How to Update
@@ -40,6 +38,7 @@
 
 # Issues and Bugs
 - Please report any issues and bugs you come across
+- Also, please leave suggestions on how I can make the program better. I would appreciate it
 
 # Download
 - [Check the Releases tab](https://github.com/Mr123keelos/Win11PerformanceApp-Python/releases)
