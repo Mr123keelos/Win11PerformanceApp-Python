@@ -38,7 +38,7 @@
 
 # Issues and Bugs
 - Please report any issues and bugs you come across
-- Also, please leave suggestions on how I can make the program better. I would appreciate it
+- Also, leave suggestions on how I can make the program better. I would appreciate it
 
 # Download
 - [Check the Releases tab](https://github.com/Mr123keelos/Win11PerformanceApp-Python/releases)
