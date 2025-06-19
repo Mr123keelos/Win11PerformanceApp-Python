@@ -1,4 +1,4 @@
-# Windows 11 Performance Application - Python Edition
+# ⭐ Windows 11 Performance Application - Python Edition ⭐
 - Windows Performance Application recoded in Python with only the tweaks applied on my PC plus many more!
 
 # Requirements
