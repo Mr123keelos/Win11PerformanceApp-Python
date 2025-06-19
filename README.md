@@ -44,7 +44,7 @@
 - [Check the Releases tab](https://github.com/Mr123keelos/Win11PerformanceApp-Python/releases)
 
 # Code
-- The app was made using Python 3
+- The open-source app was made using Python 3
 - EXE was made using PyInstaller (pyinstaller --onefile init.py)
 
 ~123keelos
