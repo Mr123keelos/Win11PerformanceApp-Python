@@ -27,16 +27,16 @@ def settings_ini():
         if not os.path.exists('Win11PerformanceApp_settings.ini'):
             config = configparser.ConfigParser()
             config['Initial'] = {
-                ';Allows the program to check for admin rights. NOTE: You still need admin rights to make system changes, this only disables the initial check': '',
+                ';Allows the program to check for admin rights. NOTE: You still need admin rights to make system changes, this only disables the initial check. Recommended to only disable for debug purposes': '',
                 'admin_check': 'true',
                 '\n'
                 ';Allows the program to check for updates on Github': '',
                 'update_check': 'true',
                 '\n'
-                ';Delay in seconds after applying tweaks. Might have to be adjusted higher for low-end PCs': '',
+                ';Delay in seconds after applying tweaks. Might have to be adjusted higher for low-end PCs, otherwise recommended to leave as default': '',
                 'program_delay': '0.5',
                 '\n'
-                ';Program priority. 0=idle, 1=below normal, 2=normal, 3=above normal, 4=high, 5=realtime. I recommend keeping this at 2, increase only if there is app slowdown.': '',
+                ';Program priority. 0=idle, 1=below normal, 2=normal, 3=above normal, 4=high, 5=realtime. I recommend keeping this at 2, increase only if there is app slowdown': '',
                 'app_priority': '2',
             }
 
@@ -51,7 +51,7 @@ def settings_ini():
             }
 
             config['Temporary Files'] = {
-                ';Change the path of where this program will save temporary files': '',
+                ';Change the path of where this program will save temporary files. Make sure the path is accessible and also exists': '',
                 'temp_file_folder': 'C:\Windows\Prefetch',
             }
 
@@ -167,6 +167,8 @@ if is_admin():
         print("Before using this application, make sure your Windows 11 has the latest updates as changes may be undone after an update. You may have to run the tweaks in this application twice as something in Windows could have reverted it.\n")
 
         print("If you are still unable to change settings even with admin, try turning off Real-time Protection in Windows Security.\n")
+
+        print("If you want to know the technical details of each tweak and what it will change in your system, refer to the Github source code. I will add information built in the program in the future.\n")
 
         print("After you are done with everything, reboot your PC to apply the changes.\n")
 

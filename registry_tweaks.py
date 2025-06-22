@@ -283,6 +283,7 @@ HiberBootEnabled"=dword:00000000
 "PreInstalledAppsEverEnabled"=dword:00000000
 "SilentInstalledAppsEnabled"=dword:00000000
 "SystemPaneSuggestionsEnabled"=dword:00000000
+"SubscribedContentEnabled"=dword:00000000
 "SubscribedContent-338387Enabled"=dword:00000000
 "SubscribedContent-338388Enabled"=dword:00000000
 "SubscribedContent-338389Enabled"=dword:00000000
@@ -290,6 +291,9 @@ HiberBootEnabled"=dword:00000000
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
 "Enabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds]
+"EnableFeeds"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
 "DisabledByGroupPolicy"=dword:00000001
@@ -339,6 +343,7 @@ HiberBootEnabled"=dword:00000000
 "BingSearchEnabled"=dword:00000000
 "DeviceHistoryEnabled"=dword:00000000
 "HistoryViewEnabled"=dword:00000000
+"IsWindowsHelloActive"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "ConnectedSearchPrivacy"=dword:00000003
@@ -351,9 +356,24 @@ HiberBootEnabled"=dword:00000000
 "AllowIndexingEncryptedStoresOrItems"=dword:00000000
 "ConnectedSearchUseWebOverMeteredConnections"=dword:00000000
 "AllowCloudSearch"=dword:00000000
+"DoNotUseWebResults"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SearchCompanion]
+"DisableContentFileUpdates"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SQMClient\Windows]
 "CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\AppCompat]
+"AllowTelemetry"=dword:00000000
+"DisableInventory"=dword:00000001
+"DisablePCA"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Privacy]
+"TailoredExperiencesWithDiagnosticDataEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft]
+"AllowNewsAndInterests"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform]
 "NoGenTicket"=dword:00000001

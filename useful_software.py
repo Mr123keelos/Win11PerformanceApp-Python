@@ -120,10 +120,6 @@ def usefulsoftware():
                   "    - Preferred Refresh Rate : Highest available\n"
                   "    - Vertical Sync : On\n"
                   "    ...all else leave at default or change to your liking.\n")
-            print("Manage 3D Settings:\n"
-                  "    - Antialising Gamma Correction : OFF\n"
-                  "    - Preferred Refresh Rate : Highest available\n"
-                  "    ...all else leave at default or change to your liking. We already changed the other settings in Nvidia App\n")
             print("Nvidia App > System > Displays\n"
                   "    - G-SYNC:\n"
                   "        - On, Fullscreen\n")
