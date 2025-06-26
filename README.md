@@ -3,7 +3,7 @@
 
 # 📋 Requirements 📋
 - Windows with admin privileges (to allow the program to make system changes)
-- Windows 11 with the latest updates (can work on older versions but this program was tested on version 24H2)
+- Windows 11 with the latest updates (can work on older Windows, but this program was tested on version 24H2)
   
 # 🏆 Features 🏆
 - Automatic file cleaner
