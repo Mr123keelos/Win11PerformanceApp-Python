@@ -8,7 +8,7 @@ import main_menu
 
 USERNAME = 'Mr123keelos'
 REPO_NAME = 'Win11PerformanceApp-Python'
-version = 1.5
+version = 1.6
 
 API_URL = f'https://api.github.com/repos/{USERNAME}/{REPO_NAME}/releases/latest'
 
