@@ -68,7 +68,7 @@ def usefulsoftware():
                 print("")
             print("-----------------\n")
             print("LINK - https://github.com/Sycnex/Windows10Debloater\n")
-            print("Uninstalls bloatware that comes packaged with Windows, reducing RAM usage, CPU usage and freeing up storage space. Works on Windows 11 24H2\n"
+            print("Uninstalls bloatware that comes packaged with Windows, reducing RAM usage, CPU usage and freeing up storage space. Works on Windows 11 25H2\n"
                   "\nFollow the instructions on the github page\n")
             print("-----------------\n")
 
