@@ -27,7 +27,7 @@ def settings_ini():
         if not os.path.exists('Win11PerformanceApp_settings.ini'):
             config = configparser.ConfigParser()
             config['Initial'] = {
-                ';Allows the program to check for admin rights. NOTE: You still need admin rights to make system changes, this only disables the initial check. Recommended to only disable for debug purposes': '',
+                ';Allows the program to check for admin rights. You still need admin rights to make system changes, this only disables the initial check. Recommended to only disable for debug purposes': '',
                 'admin_check': 'true',
                 '\n'
                 ';Allows the program to check for updates on Github': '',

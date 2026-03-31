@@ -39,7 +39,6 @@ def usefulsoftware():
                   "- Unattended Express Installation\n"
                   "    - Allow automatic reboot, if needed\n"
                   "- Perform a Clean Installation\n"
-                  "- Disable Multiplane Overlay (if you do not use this feature)\n"
                   "- Disable Ansel (if you do not use this feature)\n"
                   "- Show Expert Tweaks\n"
                   "    - Disable Driver Telemetry\n"
