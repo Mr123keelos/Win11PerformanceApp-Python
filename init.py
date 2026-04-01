@@ -8,8 +8,9 @@ import main_menu
 
 USERNAME = 'Mr123keelos'
 REPO_NAME = 'Win11PerformanceApp-Python'
-version = 1.6
+version = "1.6"
 
+SETTINGS_FILE = 'Win11PerformanceApp_settings.ini'
 API_URL = f'https://api.github.com/repos/{USERNAME}/{REPO_NAME}/releases/latest'
 
 PRIORITY_MAP = {
@@ -24,53 +25,54 @@ PRIORITY_MAP = {
 
 def settings_ini():
     try:
-        if not os.path.exists('Win11PerformanceApp_settings.ini'):
-            config = configparser.ConfigParser()
-            config['Initial'] = {
-                ';Allows the program to check for admin rights. You still need admin rights to make system changes, this only disables the initial check. Recommended to only disable for debug purposes': '',
-                'admin_check': 'true',
-                '\n'
-                ';Allows the program to check for updates on Github': '',
-                'update_check': 'true',
-                '\n'
-                ';Delay in seconds after applying tweaks. Might have to be adjusted higher for low-end PCs, otherwise recommended to leave as default': '',
-                'program_delay': '0.5',
-                '\n'
-                ';Program priority. 0=idle, 1=below normal, 2=normal, 3=above normal, 4=high, 5=realtime. I recommend keeping this at 2, increase only if there is app slowdown': '',
-                'app_priority': '2',
-            }
+        if not os.path.exists(SETTINGS_FILE):
 
-            config['Useful Software'] = {
-                ';In the USEFUL SOFTWARE section, the input will also open the associated link on your default browser': '',
-                'browser_open': 'true',
-            }
+            config_content = f"""[Initial]
+;Allows the program to check for admin rights. You still need admin rights to make system changes, this only disables the initial check. Recommended to only disable for debug purposes
+admin_check = true
 
-            config['Experimental Tweaks'] = {
-                ';Enable the EXPERIMENTAL TWEAKS section. This section contains tweaks that could have some unwanted side effects and should only be used if you know what you are doing': '',
-                'enable_experimental_tweaks': 'false',
-            }
+;Allows the program to check for updates on Github
+update_check = true
 
-            config['Temporary Files'] = {
-                ';Change the path of where this program will save temporary files. Make sure the path is accessible and also exists': '',
-                'temp_file_folder': 'C:\Windows\Prefetch',
-            }
+;Delay in seconds after applying tweaks. Might have to be adjusted higher for low-end PCs, otherwise recommended to leave as default
+program_delay = 0.5
 
-            config['Version'] = {
-                ';Config version, DO NOT CHANGE': '',
-                'config_version': version,
-            }
+;Program priority. 0=idle, 1=below normal, 2=normal, 3=above normal, 4=high, 5=realtime. I recommend keeping this at 2, increase only if there is app slowdown
+app_priority = 2
 
-            with open('Win11PerformanceApp_settings.ini', 'w') as configfile:
-                config.write(configfile)
+
+[Useful Software]
+;In the USEFUL SOFTWARE section, the input will also open the associated link on your default browser
+browser_open = true
+
+
+[Experimental Tweaks]
+;Enable the EXPERIMENTAL TWEAKS section. This section contains tweaks that could have some unwanted side effects and should only be used if you know what you are doing
+enable_experimental_tweaks = false
+
+
+[Temporary Files]
+;Change the path of where this program will save temporary files. Make sure the path is accessible and also exists
+temp_file_folder = C:\\Windows\\Prefetch
+
+
+[Version]
+;Config version, DO NOT CHANGE
+config_version = {version}
+"""
+
+            with open(SETTINGS_FILE, "w") as f:
+                f.write(config_content)
 
             print("Welcome to Windows 11 Performance Application - Python Edition by 123keelos")
             print("https://github.com/Mr123keelos/Win11PerformanceApp-Python\n")
             print("ERROR! Win11PerformanceApp_settings.ini does not exist and this program created one in the same path as where this .exe is located. Edit the Win11PerformanceApp_settings.ini file to your liking and reopen the program.\n")
             input("Press ENTER to exit...")
             sys.exit()
+
         else:
             config = configparser.ConfigParser()
-            config.read('Win11PerformanceApp_settings.ini')
+            config.read(SETTINGS_FILE)
 
             admin_check = config.get('Initial', 'admin_check', fallback=None)
             if admin_check not in ['true', 'false']:
@@ -117,10 +119,10 @@ def settings_ini():
 
 def check_version():
     config = configparser.ConfigParser()
-    config.read('Win11PerformanceApp_settings.ini')
+    config.read(SETTINGS_FILE)
     ini_version = config.get('Version', 'config_version', fallback=None)
 
-    if ini_version is None or ini_version != str(version):
+    if ini_version is None or ini_version != version:
         print("Welcome to Windows 11 Performance Application - Python Edition by 123keelos")
         print("https://github.com/Mr123keelos/Win11PerformanceApp-Python\n")
         print("ERROR! Version mismatch. Delete Win11PerformanceApp_settings.ini and reopen the program.\n")
@@ -130,13 +132,13 @@ def check_version():
 
 def set_priority():
     config = configparser.ConfigParser()
-    config.read('Win11PerformanceApp_settings.ini')
+    config.read(SETTINGS_FILE)
     app_priority = config.get('Initial', 'app_priority', fallback='2')
     try:
         priority_class = PRIORITY_MAP.get(app_priority, psutil.NORMAL_PRIORITY_CLASS)
         psutil.Process(os.getpid()).nice(priority_class)
-    except Exception as e:
-        print("")
+    except Exception:
+        pass
 
 
 settings_ini()
@@ -147,7 +149,7 @@ set_priority()
 def is_admin():
     try:
         config = configparser.ConfigParser()
-        config.read('Win11PerformanceApp_settings.ini')
+        config.read(SETTINGS_FILE)
         if config.getboolean('Initial', 'admin_check'):
             return ctypes.windll.shell32.IsUserAnAdmin()
         else:
@@ -190,16 +192,16 @@ if is_admin():
 
         print("==CHECK FOR UPDATES==")
         config = configparser.ConfigParser()
-        config.read('Win11PerformanceApp_settings.ini')
+        config.read(SETTINGS_FILE)
         if config.getboolean('Initial', 'update_check'):
             try:
                 response = requests.get(API_URL)
 
                 if response.status_code == 200:
                     release_data = response.json()
-                    latest_tag_name = release_data['tag_name']
+                    latest_tag_name = release_data['tag_name'].lstrip('v')
 
-                    if str(version) != latest_tag_name:
+                    if version != latest_tag_name:
                         print("!! NEW UPDATE AVAILABLE. VISIT THE GITHUB PAGE TO UPDATE !!\n")
                         print("You are running version : v" + str(version))
                         print("The latest version is : v" + str(latest_tag_name) + "\n")
@@ -210,7 +212,7 @@ if is_admin():
                 else:
                     print(f'ERROR! Failed to check for update.')
 
-            except requests.exceptions.RequestException as e:
+            except requests.exceptions.RequestException:
                 print(f'ERROR! Failed to check for update.')
         else:
             print("!! UPDATE CHECK IS DISABLED IN Win11PerformanceApp_settings.ini !!\n")
