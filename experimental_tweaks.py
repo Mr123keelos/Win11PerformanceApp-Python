@@ -1,127 +1,88 @@
 import os
-import main_menu
 import configparser
 import time
 import subprocess
+import main_menu
+
+CONFIG_PATH = 'Win11PerformanceApp_settings.ini'
+
+
+def load_config():
+    config = configparser.ConfigParser()
+    config.read(CONFIG_PATH)
+    return config
+
+
+def create_and_run_script(temp_folder, filename, content, delay, use_shell=True):
+    script_path = os.path.join(temp_folder, 'Win11PerformanceApp_123keelos', filename)
+    os.makedirs(os.path.dirname(script_path), exist_ok=True)
+
+    with open(script_path, 'w') as f:
+        f.write(content)
+
+    time.sleep(delay)
+
+    if filename.endswith('.reg'):
+        subprocess.call(['regedit', script_path])
+    else:
+        subprocess.call([script_path], shell=use_shell)
+
+
+def clear():
+    os.system('cls')
+
 
 def experimentaltweaks():
-    while True:
-        print("\n==EXPERIMENTAL TWEAKS==\n"
-              "[1] Disable Dynamic Tick (not recommended for laptops or where power-saving is needed)\n"
-              "[2] Disable Memory Compression (only for 16GB or higher RAM)\n"
-              "[3] Disable CPU Quota\n"
-              "[4] Enable Storage Tweaks\n"
-              "[5] ...back to Main Menu")
+    config = load_config()
+    temp_folder = config.get('Temporary Files', 'temp_file_folder')
+    delay = config.getfloat('Initial', 'program_delay')
 
-        exptweaks_choice = input("\nEnter a number: ")
+    tweaks = {
+        '1': ("Dynamic Tick has been DISABLED",
+              "1_disable_dynamic_tick.bat",
+              "@echo off\nbcdedit /set disabledynamictick yes"),
 
-        if exptweaks_choice == '1':
-            os.system('cls')
+        '2': ("Memory Compression has been DISABLED",
+              "2_disable_memory_compression.bat",
+              '@echo off\npowershell -Command "Disable-MMAgent -MemoryCompression"'),
 
-            print("SUCCESS! Dynamic Tick has been DISABLED\n")
+        '3': ("CPU Quota has been DISABLED. Please accept registry prompt",
+              "exp-tweaks_cpu_quota.reg",
+              """Windows Registry Editor Version 5.00
 
-            config = configparser.ConfigParser()
-            config.read('Win11PerformanceApp_settings.ini')
-            temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
+[HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Quota System]
+"EnableCpuQuota"=dword:00000000"""),
 
-            script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', '1_disable_dynamic_tick.bat')
-            os.makedirs(os.path.dirname(script_file_path), exist_ok=True)
-            script_content = """@echo off
-bcdedit /set disabledynamictick yes
-                        """
-
-            with open(script_file_path, 'w') as file:
-                file.write(script_content)
-
-            config = configparser.ConfigParser()
-            config.read('Win11PerformanceApp_settings.ini')
-            program_delay = config.getfloat('Initial', 'program_delay')
-            time.sleep(program_delay)
-
-            subprocess.call([script_file_path], shell=True)
-
-        elif exptweaks_choice == '2':
-            os.system('cls')
-
-            print("SUCCESS! Memory Compression has been DISABLED\n")
-
-            config = configparser.ConfigParser()
-            config.read('Win11PerformanceApp_settings.ini')
-            temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
-
-            script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', '2_disable_memory_compression.bat')
-            os.makedirs(os.path.dirname(script_file_path), exist_ok=True)
-            script_content = """@echo off
-powershell -Command "Disable-MMAgent -MemoryCompression"
-                        """
-            with open(script_file_path, 'w') as file:
-                file.write(script_content)
-
-            config = configparser.ConfigParser()
-            config.read('Win11PerformanceApp_settings.ini')
-            program_delay = config.getfloat('Initial', 'program_delay')
-            time.sleep(program_delay)
-
-            subprocess.call([script_file_path], shell=True)
-
-        elif exptweaks_choice == '3':
-            os.system('cls')
-
-            print("SUCCESS! CPU Quota have been DISABLED. Please select 'YES' when you get a registry prompt\n")
-
-            config = configparser.ConfigParser()
-            config.read('Win11PerformanceApp_settings.ini')
-            temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
-
-            script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos', 'exp-tweaks_cpu_quota.reg')
-            os.makedirs(os.path.dirname(script_file_path), exist_ok=True)
-            script_content = """Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Quota System]
-"EnableCpuQuota"=dword:00000000
-                        """
-
-            with open(script_file_path, 'w') as file:
-                file.write(script_content)
-
-            config = configparser.ConfigParser()
-            config.read('Win11PerformanceApp_settings.ini')
-            program_delay = config.getfloat('Initial', 'program_delay')
-            time.sleep(program_delay)
-
-            subprocess.call(['regedit', script_file_path])
-
-        if exptweaks_choice == '4':
-                os.system('cls')
-
-                print("SUCCESS! Storage tweaks have been ENABLED\n")
-
-                config = configparser.ConfigParser()
-                config.read('Win11PerformanceApp_settings.ini')
-                temp_file_folder = config.get('Temporary Files', 'temp_file_folder')
-
-                script_file_path = os.path.join(temp_file_folder, 'Win11PerformanceApp_123keelos','4_disable_last_access_time.bat')
-                os.makedirs(os.path.dirname(script_file_path), exist_ok=True)
-                script_content = """@echo off
+        '4': ("Storage tweaks have been ENABLED",
+              "4_disable_last_access_time.bat",
+              """@echo off
 fsutil.exe behavior set disableLastAccess 1
 fsutil behavior set disableEncryption 1
-fsutil 8dot3name set 1
-                                """
+fsutil 8dot3name set 1""")
+    }
 
-                with open(script_file_path, 'w') as file:
-                    file.write(script_content)
+    while True:
+        print("\n==EXPERIMENTAL TWEAKS==\n"
+              "[1] Disable Dynamic Tick\n"
+              "[2] Disable Memory Compression\n"
+              "[3] Disable CPU Quota\n"
+              "[4] Enable Storage Tweaks\n"
+              "[5] Back to Main Menu")
 
-                config = configparser.ConfigParser()
-                config.read('Win11PerformanceApp_settings.ini')
-                program_delay = config.getfloat('Initial', 'program_delay')
-                time.sleep(program_delay)
+        choice = input("\nEnter a number: ")
 
-                subprocess.call([script_file_path], shell=True)
+        if choice in tweaks:
+            clear()
+            message, filename, content = tweaks[choice]
+            print(f"SUCCESS! {message}\n")
 
-        elif exptweaks_choice == '5':
-            os.system('cls')
+            create_and_run_script(temp_folder, filename, content, delay)
+
+        elif choice == '5':
+            clear()
             main_menu.menu()
+            break
 
         else:
-            os.system('cls')
+            clear()
             print("INVALID! Please try again...\n")

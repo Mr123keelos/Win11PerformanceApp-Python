@@ -112,6 +112,7 @@ def usefulsoftware():
             print("-----------------\n")
             print("Nvidia App > Graphics > Global Settings:\n"
                   "    - RTX HDR : <preference, but keep in mind there is a performance hit with this enabled>\n"
+                  "        - Worth a read : https://www.reddit.com/r/nvidia/comments/1b03yfg/rtx_hdr_paper_white_gamma_reference_settings/\n"
                   "    - DLSS Override - Model Presets : Latest\n"
                   "    - Low Latency Mode : OFF, for smoothness. ON/ULTRA for least latency (*needs per-game testing as ON/ULTRA can cause stuttering*)\n"
                   "    - Max Frame Rate : [refresh] - ([refresh] x [refresh] / 4096)\n"
